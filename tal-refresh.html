@@ -103,7 +103,7 @@ const TEAMS=["Sales","Orders","Customer Promotions","Customer Care","Technical S
 const SECTIONS=[...new Set(Q.map(q=>q.section))];
 const $=s=>document.querySelector(s);
 const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="class")e.className=v;else if(x.startsWith("on"))e.addEventListener(x.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(x,v===true?"":v)}for(const c of k.flat()){if(c==null)continue;e.append(c instanceof Node?c:document.createTextNode(c))}return e};
-const ENDPOINT="https://script.google.com/macros/s/AKfycbwA6aRToENBptyPaYcrICgo5rMHY1bd9pkT43i9DUHl6q0TjZ_WSwkiYlhjC_pstTdB/exec";
+const ENDPOINT="https://script.google.com/macros/s/AKfycbx5sxPGL7m1H3puMHRyra8DXRjbDCWC_vFKcw-8ILugGuVuZhYCCRQk86zhCyNuGSub/exec";
 const st={name:"",team:"",i:0,ans:Array(Q.length).fill(null),phase:"start",saved:null,last:null};
 function view(...n){const v=$("#view");v.replaceChildren(...n.flat(2).filter(x=>x!=null));window.scrollTo(0,0)}
 
