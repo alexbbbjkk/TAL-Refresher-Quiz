@@ -139,7 +139,7 @@ async function finish(){
  st.phase="done";st.saved="saving";results_();
  if(st.saved==="saving"){
   try{
-   await fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({quiz:"Welcome to TAL",name:st.name,team:st.team,answers:st.ans,score,total:Q.length,submittedAt:st.last.at})});
+   await fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({quiz:"How well do you know TAL?",name:st.name,team:st.team,answers:st.ans,score,total:Q.length,submittedAt:st.last.at})});
    st.saved="ok";
   }catch(e){st.saved="err"}
   const s=$("#savestatus");if(s)s.textContent=statusText();
