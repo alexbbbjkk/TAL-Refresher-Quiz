@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Soft Skills and De-escalation Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#112D4E;--red:#9A2126;--bg:#F3F5F8;--surface:#FFFFFF;--ink:#16202C;--muted:#5A6270;--line:#D5DAE2;--soft:#E8EDF4;--ok:#1E7A4C;--okbg:#E4F3EA;--bad:#9A2126;--badbg:#F8E6E7;--accent:var(--navy);--onaccent:#FFFFFF;
+ color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1828;--surface:#13233A;--ink:#E9EEF5;--muted:#A3AEBE;--line:#2A3D57;--soft:#1B2F4B;--ok:#6CCB97;--okbg:#173A2A;--bad:#F08A8F;--badbg:#3D1B20;--accent:#8FB4E6;--onaccent:#0C1828;--red:#E46B72;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1828;--surface:#13233A;--ink:#E9EEF5;--muted:#A3AEBE;--line:#2A3D57;--soft:#1B2F4B;--ok:#6CCB97;--okbg:#173A2A;--bad:#F08A8F;--badbg:#3D1B20;--accent:#8FB4E6;--onaccent:#0C1828;--red:#E46B72;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,"Segoe UI",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 60px}
+.wide{max-width:1040px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+.brand{font-weight:800;color:var(--accent);letter-spacing:-.01em}
+.brand span{color:var(--red)}
+.tabs{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:999px}
+.tabs button{border:0;background:none;color:var(--muted);font:inherit;font-size:15px;font-weight:600;padding:6px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--surface);color:var(--ink)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.025em;margin:0 0 14px;font-weight:800;color:var(--accent)}
+h2{font-size:24px;margin:0 0 8px;letter-spacing:-.01em}
+p.lede{color:var(--muted);font-size:19px;margin:0 0 28px;max-width:56ch}
+.sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;margin:0 0 30px;border-radius:12px;overflow:hidden}
+.sections div{background:var(--surface);padding:14px 16px;font-size:15px}
+.sections b{display:block;font-size:26px;color:var(--red);line-height:1.1}
+label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+input,select{width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.field{margin-bottom:16px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:14px 22px;background:var(--accent);color:var(--onaccent);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+/* progress */
+.prog{display:flex;gap:3px;margin-bottom:26px}
+.prog i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.prog i.done{background:var(--accent)}
+.prog i.cur{background:var(--red)}
+.prog i.gap{margin-left:7px}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;font-weight:600;margin-bottom:10px}
+.qtext{font-size:clamp(22px,3.6vw,28px);font-weight:600;line-height:1.3;letter-spacing:-.01em;margin:0 0 22px}
+.opts{display:grid;gap:10px;margin-bottom:26px}
+.opt{display:flex;gap:14px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer}
+.opt .k{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:var(--soft);color:var(--accent)}
+.opt[aria-checked="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt[aria-checked="true"] .k{background:var(--accent);color:var(--onaccent)}
+.nav{display:flex;justify-content:space-between;gap:12px}
+/* results */
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 4px}
+.score .big{font-size:clamp(64px,14vw,104px);font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--accent)}
+.score .of{font-size:24px;color:var(--muted);font-weight:600}
+.pill{display:inline-block;padding:4px 12px;border-radius:999px;font-weight:700;font-size:14px}
+.pill.pass{background:var(--okbg);color:var(--ok)}.pill.fail{background:var(--badbg);color:var(--bad)}
+.status{font-size:15px;color:var(--muted);margin:10px 0 28px}
+.review{display:grid;gap:12px;margin:18px 0 28px}
+.rv{background:var(--surface);border-left:4px solid var(--bad);border-radius:0 10px 10px 0;padding:14px 16px}
+.rv.right{border-left-color:var(--ok)}
+.rv .q{font-weight:600;margin-bottom:6px}
+.rv .a{font-size:15px}
+.rv .a s{color:var(--muted)}
+.rv .x{font-size:15px;color:var(--muted);margin-top:4px}
+/* dashboard */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 26px}
+.stats div{background:var(--surface);border-radius:12px;padding:16px}
+.stats b{display:block;font-size:32px;font-weight:800;color:var(--accent);line-height:1.1}
+.stats span{font-size:14px;color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:14px}
+.tools .field{margin:0;min-width:180px;flex:1}
+.tablewrap{overflow-x:auto;background:var(--surface);border-radius:12px;margin-bottom:30px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:13px;color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.click{cursor:pointer}tr.click:hover td{background:var(--soft)}
+.miss{display:grid;gap:8px;margin-bottom:30px}
+.miss div{display:grid;grid-template-columns:44px 1fr 120px;gap:12px;align-items:center;background:var(--surface);border-radius:10px;padding:10px 14px;font-size:15px}
+.bar{height:8px;background:var(--soft);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--red)}
+.empty{background:var(--surface);border-radius:12px;padding:28px;color:var(--muted)}
+.hidden{display:none!important}
+@media (max-width:520px){.wrap{padding:20px 16px 48px}.miss div{grid-template-columns:36px 1fr}.miss .bar{grid-column:2}}
+@media (prefers-reduced-motion:no-preference){.qcard{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+ <header class="top"><div class="brand">TAL <span>refresher</span> quiz</div></header>
+ <main id="view"></main>
+</div>
+<script>
+// >>> Paste your Apps Script web app URL between the quotes (ends in /exec). See SETUP.md.
+const API_URL='PASTE-YOUR-WEB-APP-URL';
+// <<<
+const RAW=[["Empathy and social cues", "Which of these is empathy, rather than sympathy or agreement?", ["“That’s terrible, I’m so sorry.”", "“You’re right, that’s rubbish.”", "“I understand you’ve had an issue.”", "“I can hear how frustrating this has been. Let’s get it sorted now.”"], 3, "Empathy acknowledges the feeling, then moves to action. Sympathy can sound hollow, agreement concedes the point, and naming the situation instead of the emotion lands more weakly."], ["Empathy and social cues", "What should always come before policy or process?", ["A full explanation of what went wrong", "One genuine sentence acknowledging how the customer feels", "The fix, so the call stays short", "A transfer to the right team"], 1, "Acknowledge before you explain. Skipping acknowledgement reads as cold, even when the fix is right."], ["Empathy and social cues", "A frustrated customer is wrong about a charge. Which is true?", ["Showing empathy means agreeing with their point", "You can fully acknowledge their frustration and still hold the correct position", "Empathy should be skipped when the customer is wrong", "Empathy is only needed when TAL is at fault"], 1, "Empathy is not agreement. You can acknowledge the feeling without conceding a point you don’t need to."], ["Empathy and social cues", "Why is using the same empathy line on every call a problem?", ["It sounds scripted and undoes the effect", "It breaks compliance rules", "It makes calls run too long", "Customers may report it to Ofcom"], 0, "The same line call after call is easy to spot. Vary your phrasing and say it in your own words."], ["Empathy and social cues", "A customer suddenly speeds up how fast they talk. What does that usually signal?", ["Hesitation", "Disengagement", "Impatience", "Agreement"], 2, "Speeding up signals impatience; slowing down signals hesitation."], ["Empathy and social cues", "A customer says “this always happens” or “it never works”. What does that word choice usually signal?", ["That they want a manager", "That they’re about to end the call", "Nothing, as it’s just a figure of speech", "Built-up frustration"], 3, "“Always” and “never” signal frustration that has been building over time."], ["Empathy and social cues", "You’ve just told a customer the price. What should you do next?", ["Stop talking and count to three before speaking again", "Fill the pause by running through the features again", "Repeat the price to make sure they heard it", "Ask whether they’re still on the line"], 0, "Use silence on purpose. It’s processing time, not dead air to fill."], ["Empathy and social cues", "A customer gives a flat tone, short answers and a rushed pace. What should you do?", ["Carry on with the script, as one cue means nothing", "Wrap the call up as quickly as possible", "Offer a discount to win them back", "Check in directly, for example by naming it gently"], 3, "One flat “fine” might be nothing, but cues stacking up are worth a direct check-in."], ["Listening and rapport", "What does “listening to reply” mean?", ["Paraphrasing what the customer said back to them", "Mentally drafting your next line while the customer is still talking", "Staying silent until the customer asks a question", "Taking notes while the customer talks"], 1, "Listening to reply misses what’s actually said, including the ask behind the ask."], ["Listening and rapport", "Why should you ask one question at a time?", ["With stacked questions, customers usually only answer the last one", "It is a compliance requirement", "It keeps the customer talking for longer", "It makes the call sound more scripted"], 0, "Stacked questions get only the last one answered, which costs more time, not less."], ["Listening and rapport", "When is the real driver behind a customer’s request usually mentioned?", ["At the very end of the call", "Only when you ask for it directly", "In the first 30 seconds", "During data protection checks"], 2, "The stated request is often a symptom. The real driver is usually named in the first 30 seconds."], ["Listening and rapport", "How much genuine rapport at the start of a call routinely saves minutes later?", ["20 to 30 seconds", "2 to 3 minutes", "About 5 seconds", "None, as rapport always slows calls down"], 0, "20 to 30 seconds of genuine rapport means fuller answers first time, less pushback, and more yeses to add-ons."], ["Listening and rapport", "What does good rapport look like with a busy customer?", ["A friendly chat about their weekend", "Efficiency that matches their energy, not small talk", "Skipping rapport entirely to save time", "A longer, warmer introduction than usual"], 1, "Mirror their energy rather than manufacturing chat. Skipping rapport entirely usually costs more time."], ["Listening and rapport", "Why should you close a call warmly, not just correctly?", ["It’s required by Ofcom", "It gives you time to fill in your notes", "The last ten seconds are remembered disproportionately", "It makes the call longer and so more thorough"], 2, "Customers remember how a call ends far more than its middle, so close as warmly as you opened."], ["Staying professional", "Which style does TAL train and expect on difficult calls?", ["Assertive: calm, clear and firm", "Passive: agree to keep the peace", "Aggressive: match their energy", "Passive-aggressive: polite but pointed"], 0, "Assertive is the only one of the three TAL trains and expects. Passive leads to overpromising; aggressive turns a valid complaint into one about you."], ["Staying professional", "What is the “recordable test”?", ["Checking the call recording is switched on", "Recording the outcome of the call on the system", "Asking whether you’d be comfortable with your manager hearing this back exactly as said", "Asking the customer for permission to record"], 2, "If every sentence would hold up when played back to your manager, you’ve stayed on the professional line."], ["Staying professional", "A customer’s volume rises. What should you do with your own voice?", ["Match their volume so they know you’re engaged", "Raise it so you can be heard", "Put them on hold until they calm down", "Keep it deliberately slower and quieter"], 3, "Lower, don’t match. Raising your voice never works and is likely to become a complaint about you."], ["Staying professional", "Why should you avoid saying “I’m just trying to help you”?", ["It sounds caring internally but lands as manipulative", "It’s too informal for a customer call", "It counts as admitting fault", "It promises an outcome you can’t guarantee"], 0, "It’s a form of guilt-tripping the customer, which makes things worse."], ["Staying professional", "What is fogging?", ["Changing the subject until the customer calms down", "Giving a vague answer to avoid an argument", "Repeating the customer’s words back to them", "Agreeing with any grain of truth without agreeing with the inaccurate part"], 3, "For example: “You’re right that this has been frustrating. The part I can’t change is…”"], ["Staying professional", "What is the “broken record” technique?", ["Explaining it in different ways until the customer accepts it", "Repeating your apology until the customer calms down", "Reading the policy word for word", "Stating the accurate position calmly, in the same words each time"], 3, "Explaining it five different ways suggests there might be a different answer if they keep pushing."], ["Staying professional", "The customer is right: TAL has been too slow. What should you do first?", ["Explain the internal queue so they understand the delay", "Own it and apologise before explaining anything", "Transfer them to the complaints team", "Offer compensation straight away"], 1, "Ownership before explanation, always. Explaining the delay first makes the apology arrive too late to land."], ["Staying professional", "A case has already been mishandled once. How should it be handled now?", ["Put it back in the standard queue to be fair to others", "Close it and ask the customer to raise a new one", "Treat it as urgent instead of putting it back in a standard queue", "Ask the customer to call back in a few days"], 2, "Apologising warmly without expediting anything makes it worse. Acknowledge the pattern, not just the incident."], ["Handling the hardest calls", "What does LEAPS stand for?", ["Listen, Explain, Agree, Promise, Solve", "Learn, Empathize, Act, Propose, Settle", "Listen, Empathize, Apologize, Propose, Summarize", "Listen, Engage, Assess, Prioritize, Summarize"], 2, "LEAPS is the fallback structure for argumentative customers. HEARD is the same idea under a different name."], ["Handling the hardest calls", "In LEAPS, what is the apology for?", ["The customer’s experience, whether or not TAL is at fault", "Only things TAL has got wrong", "Admitting liability on TAL’s behalf", "Only when the customer asks for one"], 0, "Apologise for the experience. It doesn’t mean accepting fault."], ["Handling the hardest calls", "You’re using LEAPS and the call re-escalates. What should you do?", ["Jump straight to Summarize", "Restart from Listen", "Propose a bigger offer", "End the call"], 1, "Restart from the top if the call re-escalates."], ["Handling the hardest calls", "A customer’s language crosses from frustration into abuse. What should you do?", ["End the call immediately without warning", "Match their tone so they know you mean it", "Go quiet and let them get it out of their system", "Calmly set a boundary: “I want to help you, but I need us to keep this professional.”"], 3, "Set a boundary calmly. Going quiet or passive under pressure still means losing control of the call."], ["Handling the hardest calls", "Which of these is the safest commitment to make?", ["“You’ll hear from a manager within 24 hours.”", "“A manager will call you back within the half hour.”", "“This will definitely be resolved by end of day.”", "“I’ll make sure this never happens again.”"], 0, "Use realistic windows, not specific moments. A window can be kept; a fixed moment rarely is."], ["Handling the hardest calls", "Which of these can you personally promise a customer?", ["Another team’s timescale for fixing it", "That you’ll log it, flag it and send it on", "An exact time for a callback from a manager", "That it will never happen again"], 1, "Only promise what you control, and make it real by logging and actioning it during the call."], ["Handling the hardest calls", "Under Ofcom rules, when can a customer take an unresolved complaint to a free Alternative Dispute Resolution scheme?", ["After 4 weeks", "After 12 weeks", "After 6 months", "After 8 weeks, or sooner with a deadlock letter"], 3, "UK telecoms providers must follow an Ofcom-approved complaints code, with ADR as the backstop."], ["Handling the hardest calls", "A customer says, “I’m going to the ombudsman.” What is the right mindset?", ["It’s usually a bluff, so carry on as normal", "Tell them they have to go through TAL’s process first", "It’s a known, valid process, not a threat to argue with", "Transfer them to a manager straight away"], 2, "Knowing the ADR process exists means the ombudsman never catches you off guard."]];
+const Q=RAW.map((r,i)=>({n:i+1,section:r[0],q:r[1],options:r[2],answer:r[3],explain:r[4]}));
+const L="ABCD",PASS=24;
+const TEAMS=["Sales","Orders","Customer Promotions","Customer Care","Technical Support","Loyalty, Retentions & Promotions","Billing","Credit Control","Marketing","Finance","Compliance","Quality","Development","Projects","People & Culture","TAL IT Support","Data Analytics","Other"];
+const SECTIONS=[...new Set(Q.map(q=>q.section))];
+
+const $=s=>document.querySelector(s);
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="class")e.className=v;else if(x.startsWith("on"))e.addEventListener(x.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(x,v===true?"":v)}for(const c of k.flat()){if(c==null)continue;e.append(c instanceof Node?c:document.createTextNode(c))}return e};
+const LIVE=/^https:\/\//.test(API_URL);
+const st={name:"",team:"",i:0,ans:Array(Q.length).fill(null),phase:"start",saved:null,last:null,payload:null};
+function view(...n){const v=$("#view");v.replaceChildren(...n.flat(2).filter(x=>x!=null));window.scrollTo(0,0)}
+
+function start(){
+ const counts=SECTIONS.map(s=>el("div",{},el("b",{},String(Q.filter(q=>q.section===s).length)),s));
+ const name=el("input",{id:"nm",autocomplete:"name",value:st.name,placeholder:"First and last name"});
+ const team=el("select",{id:"tm"},el("option",{value:""},"Choose your team"),TEAMS.map(t=>el("option",{value:t,selected:t===st.team},t)));
+ const go=el("button",{class:"btn",onclick:()=>{st.name=name.value.trim();st.team=team.value;st.phase="q";st.i=0;st.ans=Array(Q.length).fill(null);question()}},"Start the quiz");
+ const check=()=>go.disabled=!(name.value.trim()&&team.value);name.addEventListener("input",check);team.addEventListener("change",check);check();
+ view(el("h1",{},"Soft skills and de‑escalation"),
+  el("p",{class:"lede"},"30 multiple-choice questions on Soft Skills That Win Calls and The De-escalation Playbook. It takes about 10 minutes. You need 24 or more to pass."),
+  el("div",{class:"sections"},counts),
+  el("div",{class:"field"},el("label",{for:"nm"},"Your name"),name),
+  el("div",{class:"field"},el("label",{for:"tm"},"Your team"),team),
+  go,
+  el("p",{class:"note"},LIVE?"Your score is sent to L&D automatically when you finish.":"Your score will show at the end. Tell your line manager your result, as it can’t be saved from this view."));
+}
+
+function question(){
+ const q=Q[st.i];
+ const prog=el("div",{class:"prog","aria-hidden":"true"},Q.map((x,j)=>el("i",{class:[st.ans[j]!=null?"done":"",j===st.i?"cur":"",j>0&&Q[j-1].section!==x.section?"gap":""].join(" ")})));
+ const opts=el("div",{class:"opts",role:"radiogroup","aria-label":"Answers"},q.options.map((o,k)=>el("button",{class:"opt",role:"radio","aria-checked":String(st.ans[st.i]===k),onclick:()=>{st.ans[st.i]=k;question();setTimeout(()=>$(".opt[aria-checked='true']")?.focus(),0)}},el("span",{class:"k"},L[k]),el("span",{},o))));
+ const last=st.i===Q.length-1;
+ const next=el("button",{class:"btn",disabled:st.ans[st.i]==null,onclick:()=>{if(last)finish();else{st.i++;question()}}},last?"Finish and see my score":"Next question");
+ const back=el("button",{class:"btn ghost",disabled:st.i===0,onclick:()=>{st.i--;question()}},"Back");
+ view(prog,el("div",{class:"qcard"},el("div",{class:"meta"},el("span",{},q.section),el("span",{},`${st.i+1} of ${Q.length}`)),el("p",{class:"qtext"},q.q),opts,el("div",{class:"nav"},back,next)));
+}
+
+function finish(){
+ const score=st.ans.reduce((a,v,i)=>a+(v===Q[i].answer?1:0),0);
+ st.last={score,passed:score>=PASS,at:new Date().toISOString()};
+ st.payload={name:st.name,team:st.team,score,total:Q.length,answers:st.ans.slice(),submittedAt:st.last.at};
+ st.phase="done";st.saved=LIVE?"saving":"off";results_();
+ if(LIVE)send();
+}
+async function send(){
+ st.saved="saving";setStatus();
+ try{
+  // text/plain keeps this a "simple" request, so the browser doesn't need a CORS preflight (Apps Script can't answer one)
+  const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(st.payload)});
+  const j=await r.json();st.saved=j&&j.ok?"ok":"err";
+ }catch(e){st.saved="err"}
+ setStatus();
+}
+function statusText(){return{saving:"Sending your result to L&D…",ok:"Your result has been sent to L&D.",err:"Your result couldn’t be sent. Please tell your line manager your score.",off:"Please tell your line manager your score."}[st.saved]}
+function setStatus(){const s=$("#savestatus");if(s)s.textContent=statusText();const b=$("#retry");if(b)b.classList.toggle("hidden",st.saved!=="err")}
+function results_(){
+ const {score,passed}=st.last;
+ const wrong=Q.filter((q,i)=>st.ans[i]!==q.answer);
+ const rv=q=>el("div",{class:"rv"},el("div",{class:"q"},`${q.n}. ${q.q}`),
+   el("div",{class:"a"},[el("s",{},`You said ${L[st.ans[q.n-1]]}: ${q.options[st.ans[q.n-1]]}`),el("br")],el("b",{},`Answer ${L[q.answer]}: ${q.options[q.answer]}`)),
+   el("div",{class:"x"},q.explain));
+ view(el("h2",{},st.name?`Well done for finishing, ${st.name.split(" ")[0]}.`:"Quiz complete"),
+  el("div",{class:"score"},el("span",{class:"big"},String(score)),el("span",{class:"of"},`out of ${Q.length}`),el("span",{class:"pill "+(passed?"pass":"fail")},passed?"Passed":"Not passed yet")),
+  el("p",{class:"status",id:"savestatus"},statusText()),
+  el("p",{},el("button",{class:"btn ghost hidden",id:"retry",onclick:send},"Try sending again")),
+  wrong.length?[el("h2",{},`${wrong.length} to review`),el("div",{class:"review"},wrong.map(rv))]:el("p",{},"Every answer correct. Brilliant."),
+  el("button",{class:"btn ghost",onclick:()=>{st.phase="start";start()}},"Take the quiz again"));
+ setStatus();
+}
+start();
+</script>
+</body>
+</html>
