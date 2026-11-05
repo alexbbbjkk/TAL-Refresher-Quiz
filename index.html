@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TAL Refresher Quizzes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#112D4E;--red:#9A2126;--bg:#F3F5F8;--surface:#FFFFFF;--ink:#16202C;--muted:#5A6270;--line:#D5DAE2;--soft:#E8EDF4;--accent:var(--navy);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0C1828;--surface:#13233A;--ink:#E9EEF5;--muted:#A3AEBE;--line:#2A3D57;--soft:#1B2F4B;--accent:#8FB4E6;--red:#E46B72;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,"Segoe UI",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 60px}
+.brand{font-weight:800;color:var(--accent);letter-spacing:-.01em;margin-bottom:28px}
+.brand span{color:var(--red)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.025em;margin:0 0 14px;font-weight:800;color:var(--accent)}
+p.lede{color:var(--muted);font-size:19px;margin:0 0 28px;max-width:56ch}
+.cards{display:grid;gap:14px}
+a.card{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:20px 22px}
+a.card:hover{border-color:var(--accent)}
+a.card b{display:block;font-size:22px;font-weight:800;color:var(--accent);margin-bottom:4px}
+a.card span{color:var(--muted);font-size:16px}
+a.card i{display:inline-block;margin-top:12px;font-style:normal;font-weight:700;color:var(--red)}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+@media (max-width:520px){.wrap{padding:20px 16px 48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="brand">TAL <span>refresher</span> quizzes</div>
+ <h1>Choose your quiz</h1>
+ <p class="lede">Pick the quiz you’ve been asked to take. Each has 30 multiple-choice questions, takes about 10 minutes, and needs 24 or more to pass.</p>
+ <div class="cards">
+  <a class="card" href="tal-refresh.html"><b>Welcome to TAL</b><span>Company basics, compliance and data security, the customer life cycle, and Home Telecom products and services.</span><i>Start this quiz →</i></a>
+  <a class="card" href="soft-skills.html"><b>Soft skills and de-escalation</b><span>Empathy, listening and rapport, staying professional, and handling the hardest calls.</span><i>Start this quiz →</i></a>
+ </div>
+</div>
+</body>
+</html>
